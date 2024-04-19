@@ -3,6 +3,10 @@ cmake_minimum_required(VERSION 3.5)
 add_definitions(-std=c++11)
 project(rcssserver)
 
+set(CMAKE_C_COMPILER "/usr/local/opt/llvm/bin/clang")
+set(CMAKE_CXX_COMPILER "/usr/local/opt/llvm/bin/clang++")
+set(CMAKE_CXX_FLAGS "-Wno-deprecated-declarations")
+
 set(BOOST_ROOT "/usr/local/Cellar/boost/1.83.0")
 set(BOOST_INCLUDEDIR "${BOOST_ROOT}/include")
 set(BOOST_LIBRARYDIR "${BOOST_ROOT}/lib")
