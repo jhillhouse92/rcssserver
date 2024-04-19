@@ -281,13 +281,18 @@ SimpleRule::printPretty( std::ostream & out,
     {
         getCond()->printPretty( out, lineheader + " if: " );
     }
-
+    /*
     for ( Storage::const_iterator i = getDirs().begin();
           i != getDirs().end();
           ++i )
     {
         out << (*i)->printPretty( out, lineheader + " -" );
     }
+    */
+    for (Storage::const_iterator i = getDirs().begin(); i != getDirs().end(); ++i) {
+        (*i)->printPretty(out, lineheader + " -");
+    }
+
     return out;
 }
 
@@ -376,12 +381,19 @@ NestedRule::printPretty( std::ostream & out,
         getCond()->printPretty( out, lineheader + " if: " );
     }
 
+    /*
     for ( Storage::const_iterator i = getRules().begin();
           i != getRules().end();
           ++i )
     {
         out << (*i)->printPretty( out, lineheader + " -" );
     }
+    */
+    
+    for (Storage::const_iterator i = getRules().begin(); i != getRules().end(); ++i) {
+        (*i)->printPretty(out, lineheader + " -");
+    }
+
     return out;
 }
 
@@ -432,7 +444,9 @@ IDListRule::printPretty( std::ostream & out,
                          const std::string & lineheader ) const
 {
     out << lineheader << "IDList Rule:\n";
-    return out << M_rids.printPretty( out, lineheader + " -" );
+    //return out << M_rids.printPretty( out, lineheader + " -" );
+    M_rids.printPretty( out, lineheader + " -" );  // Directly call without using <<
+    return out;  // Return the modified stream
 }
 
 std::auto_ptr< Rule >

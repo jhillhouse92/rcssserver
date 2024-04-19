@@ -38,7 +38,7 @@
 %option noyywrap
 %option full
 %option c++
-%option prefix="RCSSCLangFlexLexer"
+%option prefix="RCSSCLangFLexLexer"
 %option yyclass="RCSSCLangLexer"
 
 UINT [0-9]+

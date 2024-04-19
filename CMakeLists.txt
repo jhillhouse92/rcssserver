@@ -1,9 +1,16 @@
-cmake_minimum_required (VERSION 2.8.12)
-add_definitions(-std=c++03)
+#cmake_minimum_required (VERSION 2.8.12)
+cmake_minimum_required(VERSION 3.5)
+add_definitions(-std=c++11)
 project(rcssserver)
 
+set(BOOST_ROOT "/usr/local/Cellar/boost/1.83.0")
+set(BOOST_INCLUDEDIR "${BOOST_ROOT}/include")
+set(BOOST_LIBRARYDIR "${BOOST_ROOT}/lib")
 find_package(Boost COMPONENTS system filesystem REQUIRED)
 find_package(ZLIB REQUIRED)
+
+set(FLEX_EXECUTABLE "/usr/local/opt/flex/bin/flex")
+include_directories("/usr/local/opt/flex/include")
 find_package(FLEX REQUIRED)
 
 include_directories(${Boost_INCLUDE_DIRS})
